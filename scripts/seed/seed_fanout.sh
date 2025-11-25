@@ -1,14 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo " Wipe complet du Datastore..."
+python3 "/home/khalilfahler/scripts/tools/delete_data.py"
 
-echo "🧹 Wipe complet du Datastore..."
-python3 "$ROOT_DIR/scripts/tools/delete_data.py"
+cd "/home/khalilfahler/massive-gcp"
 
-cd "$ROOT_DIR"
-
-echo "🌱 Seed pour l'expérience FANOUT (100 posts/user, fanout = 10, 50, 100)..."
+echo " Seed pour l'expérience FANOUT (100 posts/user, fanout = 10, 50, 100)..."
 
 # fanout = 10 followees
 python3 seed.py \

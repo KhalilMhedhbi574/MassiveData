@@ -5,10 +5,10 @@ set -euo pipefail
 
 # --- Check ApacheBench (ab) and install if missing ---
 if ! command -v ab >/dev/null 2>&1; then
-    echo "⚠️  ApacheBench (ab) n'est pas installé. Installation..."
+    echo "  ApacheBench (ab) n'est pas installé. Installation..."
     sudo apt-get update -y && sudo apt-get install -y apache2-utils
     if ! command -v ab >/dev/null 2>&1; then
-        echo "❌ Impossible d'installer ab. Arrêt du script."
+        echo " Impossible d'installer ab. Arrêt du script."
         exit 1
     fi
     echo "✅ ApacheBench installé avec succès."
@@ -16,11 +16,7 @@ else
     echo "✅ ApacheBench (ab) est déjà installé."
 fi
 
-# --- Compute ROOT_DIR and OUT_DIR correctly ---
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
-OUT_DIR="$ROOT_DIR/out"
-
+OUT_DIR="/home/khalilfahler/out"
 mkdir -p "$OUT_DIR"
 
 CSV="$OUT_DIR/conc.csv"
