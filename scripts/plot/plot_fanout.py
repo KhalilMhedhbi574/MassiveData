@@ -28,7 +28,7 @@ df_ok["AVG_TIME_NUM"] = (
     .astype(float)/1000
 )
 
-# Moyenne + std
+# === 2. Calculer moyenne + écart-type par niveau de concurrence ===
 stats = (
     df_ok
     .groupby("PARAM")["AVG_TIME_NUM"]
@@ -37,7 +37,7 @@ stats = (
     .sort_values("PARAM")
 )
 
-# Graphique
+# === 3. Tracer le barplot avec barres d'erreur ===
 plt.figure(figsize=(10, 6))
 
 x_labels = stats["PARAM"].astype(str)
@@ -49,6 +49,7 @@ plt.bar(
     yerr=stats["std"],
     capsize=5
 )
+
 import numpy as np
 y_min = 0
 y_max = stats["mean"].max() + stats["std"].max()
@@ -58,9 +59,9 @@ plt.xticks(x_pos, x_labels)
 plt.xlabel("Nombre de followees par utilisateur")
 plt.ylabel("Temps moyen par requête (s)")
 plt.title("Temps moyen par requête en fonction du nombre de followees")
-
 plt.tight_layout()
 
+# === 4. Sauvegarder l'image ===
 png_path = os.path.join(OUT_DIR, "fanout.png")
 plt.savefig(png_path, dpi=150)
 

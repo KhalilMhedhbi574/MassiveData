@@ -17,10 +17,10 @@ OUT_DIR = os.path.join(ROOT_DIR, "out")
 csv_path = os.path.join(OUT_DIR, "post.csv")
 df = pd.read_csv(csv_path)
 
-# On ne garde que les runs réussis (FAILED = 0)
+# Filtrer les runs réussis
 df_ok = df[df["FAILED"] == 0].copy()
 
-# Nettoyer AVG_TIME (au cas où il y a "ms")
+# Nettoyer AVG_TIME
 df_ok["AVG_TIME_NUM"] = (
     df_ok["AVG_TIME"]
     .astype(str)
@@ -49,6 +49,7 @@ plt.bar(
     yerr=stats["std"],
     capsize=5
 )
+
 import numpy as np
 y_min = 0
 y_max = stats["mean"].max() + stats["std"].max()
@@ -57,8 +58,7 @@ plt.grid(axis='y', linestyle='--', alpha=0.6)
 plt.xticks(x_pos, x_labels)
 plt.xlabel("Nombre de posts par utilisateur")
 plt.ylabel("Temps moyen par requête (s)")
-plt.title("Temps par moyen par rêquete selon le nombre de posts")
-
+plt.title("Temps moyen par requête selon le nombre de posts")
 plt.tight_layout()
 
 # === 4. Sauvegarder l'image ===

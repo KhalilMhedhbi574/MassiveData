@@ -17,9 +17,10 @@ OUT_DIR = os.path.join(ROOT_DIR, "out")
 csv_path = os.path.join(OUT_DIR, "conc.csv")
 df = pd.read_csv(csv_path)
 
-# On ne garde que les runs réussis (FAILED = 0)
-df_ok = df[df["FAILED"] == 0]
+# Filtrer les runs réussis
+df_ok = df[df["FAILED"] == 0].copy()
 
+# Nettoyer AVG_TIME
 df_ok["AVG_TIME_NUM"] = (
     df_ok["AVG_TIME"]
     .astype(str)
@@ -48,6 +49,7 @@ plt.bar(
     yerr=stats["std"],
     capsize=5
 )
+
 import numpy as np
 y_min = 0
 y_max = stats["mean"].max() + stats["std"].max()
@@ -57,7 +59,6 @@ plt.xticks(x_pos, x_labels)
 plt.xlabel("Nombre d'utilisateurs concurrents")
 plt.ylabel("Temps moyen par requête (s)")
 plt.title("Temps moyen par rêquete selon la concurrence")
-
 plt.tight_layout()
 
 # === 4. Sauvegarder l'image ===
