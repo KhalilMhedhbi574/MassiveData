@@ -112,13 +112,13 @@ On observe une augmentation exponentielle avec 1000 cependant.
 Le passage de 10 à 100 posts par user n'a presque pas changé les resultats hormis la variance. 
 Le passage à 1000 posts par user, quant à lui, double presque le temps tout en restant sous la seconde. 
 
-![Graphique Conc](/out/conc.png)
+![Graphique Conc](/out/post.png)
 
 ### Fanout (nombre de followees)  
 
 On observe une augmentation presque linéaire pour fanout. On se situe autour de la seconde pour 10 followees, 5 secondes pour 50 followees et 10 secondes pour 100 followees. C'est le bench le plus couteux en temps.
 
-![Graphique Conc](/out/conc.png)
+![Graphique Conc](/out/fanout.png)
 
 ---
 
