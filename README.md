@@ -60,7 +60,7 @@ Avant chaque série d’expérimentations, les données du Datastore sont **vid�
 Le script principal `seed.py` a été **modifié** :
 
 - Ajout de **flags** comme `--skip-follows` pour sauter certaines étapes (posts, followees, etc.) afin de ne pas avoir a réimporter toutes la base à chaque changement de paramètre.  
-- **Batching** des requêtes (insertion par lots) pour posts et followees.  
+- **Batching** des requêtes (insertion par lots) pour posts et followees pour accélerer considérablement la vitesse de l'insertion (un million de posts en 15 minutes).  
 
 ## Benchmarks  
 
