@@ -62,7 +62,7 @@ Le script principal `seed.py` a été **modifié** :
 - Ajout de **flags** comme `--skip-follows` pour sauter certaines étapes (posts, followees, etc.) afin de ne pas avoir a réimporter toutes la base à chaque changement de paramètre.  
 - **Batching** des requêtes (insertion par lots) pour posts et followees.  
 
-### Benchmarks  
+## Benchmarks  
 
 - **Concurrence** — 1000 users, 50 posts/user, 20 followees  
   ```bash
@@ -88,7 +88,7 @@ Chaque script :
 
 ---
 
-## 📊 Graphiques (barplots)
+## Graphiques (barplots)
 
 Les scripts de génération de graphiques se trouvent dans `scripts/plot/*.py`. Ils lisent les CSV résultants et produisent des PNG dans `out/` :
 
@@ -98,7 +98,7 @@ Les scripts de génération de graphiques se trouvent dans `scripts/plot/*.py`. 
 
 ---
 
-## 📈 Analyse synthétique des résultats
+## Analyse synthétique des résultats
 
 ### Concurrence  
 
@@ -122,21 +122,21 @@ On observe une augmentation presque linéaire pour fanout. On se situe autour de
 
 ---
 
-### Cloner le dépôt
+## Cloner le dépôt
 
 ```bash
 git clone https://github.com/KhalilMhedhbi574/MassiveData.git
 cd MassiveData
 ```
 
-### Lancer un benchmark
+## Lancer un benchmark
 
 ```bash
   python /scripts/bench/bench_conc.py
 # ou bench_post.py, bench_fanout.py selon l’expérience souhaitée
 ```
 
-### Générer les graphiques
+## Générer les graphiques
 
 ```bash
 python scripts/plot/plot_conc.py
