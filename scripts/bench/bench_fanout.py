@@ -125,6 +125,7 @@ def seed_full_dataset():
     #   - ~100 posts par user
     #   - 0 followees par user
     total_posts = NB_USERS_TOTAL * POSTS_PER_USER
+    fanout = 0
     print(
         f"[SEED] fanout={fanout}, posts_per_user={POSTS_PER_USER}, "
         f"total_posts={total_posts} (skip-users)"
