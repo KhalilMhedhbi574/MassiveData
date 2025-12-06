@@ -129,6 +129,10 @@ def create_posts(client: datastore.Client, names: list[str], total_posts: int, d
             batch.commit()
             cpt=0
             print(f"**[Seed] Posts créés: {created}**")
+          # Commit du dernier batch partiel
+    if batch is not None and cpt > 0 and not dry:
+        batch.commit()
+        print(f"**[Seed] Dernier batch de posts commit. Total cumulé : {created}**")
     return created
 
 def main():
