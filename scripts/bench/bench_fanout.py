@@ -119,7 +119,7 @@ def seed_fanout_only(fanout: int):
     ]
     subprocess.check_call(cmd)
 
-def seed_full_dataset(fanout: int):
+def seed_full_dataset():
     # Seed une seule fois :
     #   - 1000 users
     #   - ~100 posts par user
