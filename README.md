@@ -80,7 +80,7 @@ Le script principal `seed.py` a été **modifié** :
   ```
 
 Chaque script :  
-- lance les requêtes sur des utilisateurs distincts en parallèle,  
+- lance les requêtes sur des utilisateurs distincts en parallèle grâce à des threads,  
 - lance **3 runs par paramètre** avec un **cold start** avant chaque run,
 - met à jour les paramètres (notamment grâce à --skip-follows et skip--posts de seed.py)  
 - génère un fichier CSV conforme,  
